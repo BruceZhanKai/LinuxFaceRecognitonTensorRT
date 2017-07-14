@@ -1,0 +1,36 @@
+Create Git Server
+=================
+
+Create New Resipotary
+=====================
+In $(NewGitDir)
+	>> sudo git --bare init  --shared
+
+In /var/git/
+	>> sudo chgrp -R git  $(NewGitDir)/
+	>> sudo chmod g+rwx -R $(NewGitDir)/
+
+Add valid login IP
+	>> sudo vi /etc/hosts.allow
+		|-------------------------------|
+		| ALL: 10.2.137.8		|
+		|-------------------------------|
+
+Add Git Client
+==============
+	>> sudo adduser  $(UserName)
+	>> usermod -G  git  $(UserName)
+	>> sudo vi /etc/ssh/sshd_config
+		|-------------------------------|
+		| AllowUsers $(UserName)	|
+		|-------------------------------|
+	>> sudo /etc/init.d/ssh  restart
+
+Create Git Directory at Client
+==============================
+In Client
+	>> git init
+	>> git remote add origin ssh://$(UserName)@10.2.137.11/var/git/$(NewGitDir)
+
+	Change URL:
+		>> git remote set-url origin ssh://joshuapan@10.2.137.103/var/git_repositories/FaceRecogSys.git
