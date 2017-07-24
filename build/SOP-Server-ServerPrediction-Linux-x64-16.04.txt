@@ -50,6 +50,12 @@ ________________________________________________________________________________
 
 /**CUDA**/
 
+### Download from nvidia web
+### https://developer.nvidia.com/cuda-downloads
+$ sudo dpkg -i cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64.deb
+$ sudo apt-get update
+$ sudo apt-get install cuda
+
 _______________________________________________________________________________________________
 
 /**OpenCV**/
@@ -148,6 +154,23 @@ $ make install
 _______________________________________________________________________________________________
 
 /**TensorRT**/
+
+### Download from nvidia web
+### https://developer.nvidia.com/nvidia-tensorrt-download
+$ sudo dpkg -i nv-gie-repo-ubuntu1604-cuda8.0-trt2.1-20170614_1-1_amd64.deb
+$ sudo apt-get update
+$ sudo apt-get install tensorrt-2.1.2
+
+$ dpkg -l | grep TensorRT
+### you should see:
+### libnvinfer-dev 3.0.2-1+cuda8.0 amd64 TensorRT development libraries and headers
+### libnvinfer3 3.0.2-1+cuda8.0 amd64 TensorRT runtime libraries   tensorrt-2.1.2 3.0.2-1+cuda8.0 amd64 Meta package of         TensorRT
+
+### run & test
+$ cd /usr/src/tensorrt/samples
+$ sudo make
+$ cd ../bin/
+$ giexec --deploy=mnist.prototxt --model=mnist.caffemodel --output=prob
 
 _______________________________________________________________________________________________
 
