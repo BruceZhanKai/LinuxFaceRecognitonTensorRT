@@ -9,6 +9,44 @@
 //*********************************************************************************************
 //=============================================================================================
 //=============================================================================================
+
+_______________________________________________________________________________________________
+
+/**Ubuntu 16.04 Server**/
+
+### Boot Override
+### Choose [UEFI: USB DISK]
+
+### Detect keyboard layout?
+### <No>
+
+### Unmount partitions that are in use?
+### <No>
+
+### Partitioning method:
+### <Manual>
+
+### 500MB EPS
+### 500MB /boot ext4
+### 100GB /     ext4
+### 130GB /home ext4
+### 68GB        swap
+
+### Choose software to install:
+### <standard server>
+
+### xubuntu-desktop install
+$ sudo apt-get install xfce4
+$ sudo apt-get install xubuntu-desktop
+$ 
+
+
+
+
+
+
+
+
 _______________________________________________________________________________________________
 
 /**Ubuntu 16.04**/
@@ -56,11 +94,15 @@ $ sudo dpkg -i cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64.deb
 $ sudo apt-get update
 $ sudo apt-get install cuda
 
+$ sudo vi ~/.bashrc
+# export PATH="$PATH:/usr/local/cuda-8.0/bin" 
+# export LD_LIBRARY_PATH="/usr/local/cuda-8.0/lib64"
+
 _______________________________________________________________________________________________
 
 /**OpenCV**/
 
-# issue
+### issue
 
 OpenCV static library was compiled with CUDA 7.5 support.  Please, use the
   same version or rebuild OpenCV with CUDA 8.0
@@ -172,6 +214,12 @@ $ sudo make
 $ cd ../bin/
 $ giexec --deploy=mnist.prototxt --model=mnist.caffemodel --output=prob
 
+### issue
+tensorrt-2.1.2 : Depends: libnvinfer3 (>= 3.0.2) but it is not going to be installed
+Depends: libnvinfer-dev (>= 3.0.2) but it is not going to be installed
+E: Unable to correct problems, you have held broken packages.
+### solve
+update cuda, it solves.
 _______________________________________________________________________________________________
 
 /**Eigen**/
