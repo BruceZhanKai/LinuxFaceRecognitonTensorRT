@@ -174,7 +174,15 @@ $ cd caffe/
 
 $ cp Makefile.config.example Makefile.config
 
+$ mkdir build
+
+$ cd build
+
 $ cmake ..
+
+#error Could NOT find LevelDB (missing: LevelDB_INCLUDE LevelDB_LIBRARY)
+$ sudo apt-get install libleveldb-dev
+
 
 #erorr opencv in cmake/Dependencies.cmake
 #add
