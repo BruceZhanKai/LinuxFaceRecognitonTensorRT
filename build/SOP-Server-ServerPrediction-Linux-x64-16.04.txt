@@ -201,6 +201,14 @@ set(CUDA_USE_STATIC_CUDA_RUNTIME OFF)
 
 $ make install
 
+# build code issue
+# /home/bruce/caffe/include/caffe/layer_factory.hpp:48:34: fatal error: caffe/proto/caffe.pb.h: No such file or directory
+# cmakelists add
+# include_directories(/home/bruce/caffe/build/install/include/)
+# or
+# include_directories(/home/bruce/caffe/build/include/)
+
+
 _______________________________________________________________________________________________
 
 /**TensorRT**/
