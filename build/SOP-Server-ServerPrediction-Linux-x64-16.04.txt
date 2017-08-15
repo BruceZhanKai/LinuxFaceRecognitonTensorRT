@@ -97,6 +97,7 @@ $ sudo apt-get install cuda
 $ sudo vi ~/.bashrc
 # export PATH="$PATH:/usr/local/cuda-8.0/bin" 
 # export LD_LIBRARY_PATH="/usr/local/cuda-8.0/lib64"
+$ source ~/.bashrc
 
 _______________________________________________________________________________________________
 
@@ -188,45 +189,33 @@ ________________________________________________________________________________
 /**Caffe**/
 
 $ sudo apt-get install libprotobuf-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler
-
 $ sudo apt-get install --no-install-recommends libboost-all-dev 
-
 $ sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
-
 $ sudo apt-get install libatlas-base-dev
-
 $ git clone git://github.com/BVLC/caffe.git
-
 $ cd caffe/
-
 $ cp Makefile.config.example Makefile.config
-
 $ mkdir build
-
 $ cd build
-
 $ cmake ..
+$ make all -j4
+$ make install
+
 
 #error Could NOT find LevelDB (missing: LevelDB_INCLUDE LevelDB_LIBRARY)
 $ sudo apt-get install libleveldb-dev
-
 
 #erorr opencv in cmake/Dependencies.cmake
 #add
 set( OpenCV_DIR /home/user/opencv-2.4.13.2/release )
 set(OpenCV_FOUND 1)
 
-$ make all -j4
-
 #erorr /usr/bin/ld: cannot find -lopencv_dep_cudart
-
 $ sudo ln -s /usr/local/cuda-8.0/lib64/libcudart.so /usr/local/lib/
 $ sudo ln -s /usr/local/cuda-8.0/lib64/libcudart.a /usr/local/lib/
 
 #add in /caffe/CmakeLists.txt
 set(CUDA_USE_STATIC_CUDA_RUNTIME OFF)
-
-$ make install
 
 # build code issue
 # /home/bruce/caffe/include/caffe/layer_factory.hpp:48:34: fatal error: caffe/proto/caffe.pb.h: No such file or directory
@@ -234,7 +223,6 @@ $ make install
 # include_directories(/home/bruce/caffe/build/install/include/)
 # or
 # include_directories(/home/bruce/caffe/build/include/)
-
 
 _______________________________________________________________________________________________
 
