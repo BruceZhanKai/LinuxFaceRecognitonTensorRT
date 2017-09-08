@@ -17,11 +17,12 @@ message("OPENCV")
 set( OpenCV_DIR /home/user/opencv-2.4.13.2/release )
 set(OpenCV_FOUND 1)
 find_package( OpenCV )
-find_package( OpenCV REQUIRED )
+#find_package( OpenCV REQUIRED )
 
 message("CUDA")
 #find_package( CUDA )
 find_package( CUDA QUIET REQUIRED )
+include_directories(${CUDA_INCLUDE_DIR})
 
 #message("BOOST")
 #find_package( Boost COMPONENTS filesystem system REQUIRED)
@@ -54,11 +55,16 @@ set(
 include_directories(${CMAKE_BINARY_DIR})
 include_directories(/usr/include)
 include_directories(${EIGEN3_INCLUDE_DIR})
-
+include_directories(/usr/local/cuda-8.0/include)
 
 set( MySQL_DIR "/home/user/mysql-connector-c++-1.1.9-linux-ubuntu16.04-x86-64bit/" )
 include_directories(${MySQL_DIR}/include)
 link_directories(${MySQL_DIR}/lib)
+
+set( TensorRT_DIR "/home/user/TensorRT-2.1.2/" )
+include_directories(${TensorRT_DIR}/include)
+link_directories(${TensorRT_DIR}/lib)
+
 
 #INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
 #LINK_DIRECTORIES(${Boost_LIBRARY_DIRS})	
