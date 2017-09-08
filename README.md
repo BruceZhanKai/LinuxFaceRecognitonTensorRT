@@ -17,11 +17,13 @@
 
 ### Disk Partition
 
-| 500MB|EPS| | 
-| 500MB|/boot| ext4| 
-| 100GB|/    | ext4| 
-| 130GB|/home| ext4| 
-| 68GB |     | swap| 
+|容量|位置|格式|
+| ------| ------ | ------ |
+|500MB|EPS| |
+|500MB|/boot|ext4| 
+|100GB|/|ext4| 
+|130GB|/home|ext4| 
+|68GB| |swap| 
 
 
 ### Choose software to install:
