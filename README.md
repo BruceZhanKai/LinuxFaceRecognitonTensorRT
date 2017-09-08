@@ -17,12 +17,12 @@
 
 ### Disk Partition
 
-` 500MB EPS
- 500MB /boot ext4
- 100GB /     ext4
- 130GB /home ext4
- 68GB        swap
-`
+| 500MB|EPS| | 
+| 500MB|/boot| ext4| 
+| 100GB|/    | ext4| 
+| 130GB|/home| ext4| 
+| 68GB |     | swap| 
+
 
 ### Choose software to install:
 ` <standard server>`
@@ -147,7 +147,7 @@ Could NOT find CUDA: Found unsuitable version "7.5", but required is exact
 
 ```
 
-Download opencv-2.4.13-linux
+opencv-2.4.13-linux
 
 ```
 $ wget http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.13/opencv-2.4.13.zip
